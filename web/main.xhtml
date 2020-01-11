@@ -59,8 +59,8 @@
                 <f:selectItem itemValue="5" itemLabel="5"/>
 
             </p:selectOneMenu>
-            <h:message for="r" id="errX" styleClass="warn"/>
-            <span id="warningR" style="color:red; font-size: 90%"> </span>
+            <h:message for="x" id="errX" styleClass="warn"/>
+            <span id="warningX" style="color:red; font-size: 90%"> </span>
 
             <!--<h:inputHidden id="x" value="#{checker.x}" required="true"  requiredMessage="You haven't chose!"/>
             <table id="yIn" border="5px">
@@ -95,18 +95,40 @@
 
             <h2>Выберите R</h2>
 
-            <h:inputHidden id="r" value="#{checker.r}" required="true"  requiredMessage="Выберите радиус!"/>
-            <table id="yIn" border="5px">
-                <tr>
-                    <td><h:commandLink id="x-3" styleClass="link" value="1" onclick="handleRChange(1)" /></td>
-                    <td><h:commandLink id="x-2" styleClass="link" value="1.5" onclick="handleRChange(1.5)"/></td>
-                    <td><h:commandLink id="x-1" styleClass="link" value="2" onclick="handleRChange(2)"/></td>
-                    <td><h:commandLink id="x0" styleClass="link" value="2.5" onclick="handleRChange(2.5)"/></td>
-                    <td><h:commandLink id="x1" styleClass="link" value="3" onclick="handleRChange(3)"/></td>
-                    <!--<f:ajax event="change" render="r submit"/>-->
-                </tr>
+           <table>
+               <tr>
+                   <td>
+                       <p:commandLink id="x-2"  action="#{checker.r}" styleClass="link" onclick="handleRChange(1)" >
+                           <h:outputText value="1" />
+                       </p:commandLink>
+                   </td>
 
-            </table>
+                   <td>
+                       <p:commandLink id="x-1"  action="#{checker.r}" styleClass="link" onclick="handleRChange(1.5)" >
+                           <h:outputText value="1.5" />
+                       </p:commandLink>
+                   </td>
+                   <td>
+                       <p:commandLink id="x0"  action="#{checker.r}" styleClass="link" onclick="drawArea(2)" >
+                           <h:outputText value="2" />
+                       </p:commandLink>
+                   </td>
+                   <td>
+                       <p:commandLink id="x1"  action="#{checker.r}" styleClass="link" onclick="drawArea(2.5)" >
+                           <h:outputText value="2.5" />
+                       </p:commandLink>
+                   </td>
+                   <td>
+                       <p:commandLink id="x2"  action="#{checker.r}" styleClass="link" onclick="drawArea(3)" >
+                           <h:outputText value="3" />
+                       </p:commandLink>
+                   </td>
+               </tr>
+           </table>
+
+
+
+
 
 
 
@@ -130,11 +152,11 @@
 
         </h:form>
         <h:form>
-            <h:commandButton styleClass="history-button button" action="GoToIndex" value="Start page">
+            <h:commandButton styleClass="history-button button" action="GoToIndex" value="Вернуться">
                 <f:actionListener binding="#{name.clear()}"/>
             </h:commandButton>
         </h:form>
-        <h1>Request history</h1>
+        <h1>История запросов</h1>
         <h:form id="table-form">
             <h:dataTable value="#{data.points}" id="result-table" var="p" styleClass="result-table">
 
